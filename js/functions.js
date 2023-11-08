@@ -47,9 +47,9 @@ let array_text = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "sabado",
 let array_mixt = [1, "a", 2.5, "c"];
 let array_mul = [
     {name:"Rolly", last_name: "Arenas", age: "3"},
-    {name:"Rolly", last_name: "Arenas", age: "3"},
-    {name:"Rolly", last_name: "Arenas", age: "3"},
-    {name:"Rolly", last_name: "Arenas", age: "3"},
+    {name:"Alexis", last_name: "Arenas", age: "3"},
+    {name:"Bitch", last_name: "Arenas", age: "3"},
+    {name:"Majo", last_name: "Arenas", age: "3"},
 ];
 
 //OPERADORES BASICOS
@@ -98,7 +98,7 @@ Swal.fire({
 // AND && con if
 var bool = false;
 var numeric = "7";
-if(!bool && numeric === "7"){ // bool == true el triple igual compara el valor y el tipo de dato
+if(!bool && numeric === "7"){ // bool == true; el triple igual compara el valor y el tipo de dato
     console.log("ENTRA IF");
 
 } else{
@@ -158,10 +158,10 @@ btn_changeColor.addEventListener("click", () => {
     document.body.style.color = "#fff";
 });
 
-const form       = document.getElementById("#form_register");
-const nombres    = document.getElementById("#form_register");
-const apellidos  = document.getElementById("#form_register");
-const validation = document.getElementById("#form_register");
+const form       = document.getElementById("form_register");
+const nombres    = document.getElementById("form_register");
+const apellidos  = document.getElementById("form_register");
+const validation = document.getElementById("form_register");
 
 form.addEventListener("sumbit", name_event => {
     name_event.preventDefault();
@@ -175,3 +175,22 @@ form.addEventListener("sumbit", name_event => {
     }
     validation.innerText = info;
 });
+function load_page(){
+    document.getElementById("nombres").focus();
+    document.getElementById("apellidos").disabled = true;
+    let date = new Date();
+    console.log(date.getFullYear);
+    for (let i = 0; i < array_mul.length; i++) {
+        console.log(array_mul[i].name);
+    }
+}
+function validate(){
+    let nombres= document.getElementById("nombres").value
+    console.log(nombres);
+    alert(nombres.toLowerCase());//UpperCase convierte a mayuscula y LowerCase a minuscula index of utiliza el contenido del indice para encontrar el contenido del indice
+    if (nombres.length > 2){
+    document.getElementById("apellidos").disabled = false;
+    document.getElementById("apellidos").focus();
+    document.getElementById("nombres").value = "";
+    }
+}
